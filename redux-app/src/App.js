@@ -19,11 +19,11 @@ function App() {
 
   return (
     <div className="App">
-      <h2>FETCHING DATA FROM API USING REACT-REDUX</h2>
-      <button className='btn btn-success' onClick={() => dispatch(FetchData())}>Fetch Items</button>
-      <input type='text' placeholder='Search Item' onChange={(e) => setSearch(e.target.value)} />
+      <h2 style={{fontFamily:'fantasy', color:'GrayText'}}>FETCHING DATA FROM API USING REACT-REDUX</h2>
+      <button className='btn btn-info' style={{fontFamily:'cursive', color:'white'}}  onClick={() => dispatch(FetchData())}>Fetch Items</button>
+      <input type='text' placeholder='Search Item...' onChange={(e) => setSearch(e.target.value)} />
       <div>
-        {state.cart.data && state.cart.data.filter((items) => search.toLowerCase === "" || items.title.toLowerCase().includes(search)).map((item) => <ul style={{ color: 'green', fontSize: '20px' }} key={item.id}><li>{item.title}</li></ul>)}
+        {state.cart.data && state.cart.data.filter((items) => search.toLowerCase === "" || items.title.toLowerCase().includes(search)).map((item) => <ul style={{ color: 'green', fontSize: '18px' }} key={item.id}><li>{item.title}</li></ul>)}
       </div>
     </div>
   );
