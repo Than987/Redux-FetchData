@@ -9,8 +9,22 @@ export const FetchData = createAsyncThunk("FetchData", async()=>{
 const CartSlice = createSlice({
     name : 'cart',
     initialState:{
-     
+      data:null,
+      isLoading: false,
+      isError: false
     },
-   
+    extraReducers:(builder)=>{
+        builder.addCase(FetchData.pending, (state,action)=>{
+            state.isLoading = true;
+        })
+        builder.addCase(FetchData.fulfilled, (state,action)=>{
+            state.data= action.payload
+            state.isLoading = false
+        })
+        builder.addCase(FetchData.rejected, (state,action)=>{
+            state.data= console.log("Error",action.payload);
+            state.isError = true;
+        })
+    }
 })
 export default CartSlice.reducer
